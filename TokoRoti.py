@@ -10,7 +10,7 @@ st.set_page_config(page_title="Optimasi Produksi Kue - SweetBite", layout="cente
 st.markdown("""
 <style>
 .stApp { background-color: black; }
-.title { color: #5a3e36; }
+.title { color: white; }
 </style>
 """, unsafe_allow_html=True)
 
