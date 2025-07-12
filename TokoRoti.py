@@ -9,7 +9,7 @@ import base64
 st.set_page_config(page_title="Optimasi Produksi Kue - SweetBite", layout="centered")
 st.markdown("""
 <style>
-.stApp { background-color: black; }
+.stApp { background-color: #426B3; }
 .title { color: white; }
 </style>
 """, unsafe_allow_html=True)
