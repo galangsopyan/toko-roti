@@ -136,7 +136,7 @@ if res.success:
     # Penjelasan
     with st.expander("🔍 Lihat Penjelasan Langkah Linear Programming"):
         st.markdown(f"""
-        1. Fungsi tujuan: `Z = {profit_C}X + {profit_K}Y`
+        1. Fungsi tujuan: `Z = {profit_X}X + {profit_Y}Y`
         2. Batasan:
             - `{flour_X}X + {flour_Y}Y <= {total_flour}` (Tepung)
             - `{labor_X}X + {labor_Y}Y <= {total_labor}` (Jam kerja)
