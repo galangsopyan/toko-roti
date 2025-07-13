@@ -24,7 +24,7 @@ st.markdown("""
         font-weight: bold;
     }
     h2, h3, h4 {
-        color: #5a3921;
+        color: #ffb347;
     }
     p {
         color: #333333;
