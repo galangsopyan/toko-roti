@@ -13,11 +13,11 @@ st.markdown("""
 <style>
     body {
         font-family: 'Arial', sans-serif;
-        background-color: #ffffff;
+        background-color: #black;
         color: #212121;
     }
     .main {
-        background-color: #ffffff;
+        background-color: #black;
         max-width: 1000px;
         margin: auto;
         padding: 2rem;
