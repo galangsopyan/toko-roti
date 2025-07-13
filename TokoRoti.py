@@ -69,7 +69,7 @@ with col2:
 # batasan
 st.subheader("⛔ Batasan Sumber Daya")
 total_flour = st.slider("Total Tepung (gr)", min_value=1000, max_value=10000, value=6000, step=100)
-total_labor = st.slider("Total Jam Kerja (jam)", min_value=10, max_value=100, value=40, step=1)
+total_labor = st.slider("Total Jam Kerja (jam)", min_value=10, max_value=40, value=40, step=1)
 
 # Fungsi untuk download data sebagai JSON
 def download_json(data, filename="hasil.json"):
