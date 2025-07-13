@@ -14,7 +14,7 @@ st.markdown("""
     html, body, [class*="css"]  {
         font-family: 'Segoe UI', sans-serif;
         background-color: #ffffff !important;
-        color: #000000;
+        color: #333333;
     }
     .main {
         max-width: 1000px;
