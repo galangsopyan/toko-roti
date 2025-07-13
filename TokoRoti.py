@@ -13,21 +13,26 @@ st.markdown("""
 <style>
     body {
         font-family: 'Arial', sans-serif;
+        background-color: #ffffff;
+        color: #212121;
     }
     .main {
-        background-color: #fffdf7;
+        background-color: #ffffff;
+        max-width: 1000px;
+        margin: auto;
+        padding: 2rem;
     }
     h1 {
-        color: #5a3921;
+        color: #212121;
         text-align: center;
-        font-size: 40px;
+        font-size: 38px;
         font-weight: bold;
     }
     h2, h3, h4 {
-        color: #5a3921;
+        color: #333333;
     }
     p {
-        color: #333333;
+        color: #444444;
         font-size: 18px;
     }
     .stButton > button {
