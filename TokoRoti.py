@@ -34,7 +34,7 @@ total_labor = st.slider("Total Jam Kerja (jam)", min_value=10, max_value=100, va
 
 # Fungsi untuk download data sebagai JSON
 def download_json(data, filename="hasil.json"):
-    json_str = json.dumps(data)
+    json_str = json.dumps(data, indent =4)
     b64 = base64.b64encode(json_str.encode()).decode()
     href = f'<a href="data:file/json;base64,{b64}" download="{filename}">📥 Download Hasil sebagai JSON</a>'
     return href
