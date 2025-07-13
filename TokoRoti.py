@@ -22,7 +22,7 @@ st.markdown("""
         padding: 2rem;
     }
     h1 {
-        color: #1a1a1a;
+        color: #white;
         text-align: center;
         font-size: 42px;
         font-weight: bold;
