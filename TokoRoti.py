@@ -18,13 +18,13 @@ st.markdown("""
         background-color: #fffdf7;
     }
     h1 {
-        color: #d2691e;
+        color: #3e2723;
         text-align: center;
-        font-size: 38px;
+        font-size: 40px;
         font-weight: bold;
     }
     h2, h3, h4 {
-        color: #ffb347;
+        color: #5a3921;
     }
     p {
         color: #333333;
