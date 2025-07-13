@@ -13,7 +13,7 @@ st.markdown("""
 <style>
     html, body, [class*="css"]  {
         font-family: 'Segoe UI', sans-serif;
-        background-color: #ffffff !important;
+        background-color: #black !important;
         color: #333333;
     }
     .main {
