@@ -12,7 +12,7 @@ st.set_page_config(page_title="Optimasi Produksi Kue - SweetBite", layout="cente
 st.markdown("""
 <style>
     body {
-        font-family: 'Arial', sans-serif;
+        font-family: 'Segoe UI', sans-serif;
     }
     .main {
         background-color: #fffdf7;
@@ -20,7 +20,7 @@ st.markdown("""
     h1 {
         color: #d2691e;
         text-align: center;
-        font-size: 36px;
+        font-size: 40px;
         margin-bottom: 20px;
     }
     .stButton > button {
@@ -35,6 +35,8 @@ st.markdown("""
     }
 </style>
 """, unsafe_allow_html=True)
+# Tambahkan logo
+st.markdown("<img src='https://cdn-icons-png.flaticon.com/512/2965/2965567.png' class='logo'>", unsafe_allow_html=True)
 
 st.markdown("<h1>🎂 Optimasi Produksi Kue - Toko Roti SweetBite</h1>", unsafe_allow_html=True)
 
