@@ -15,7 +15,7 @@ st.markdown("""
         font-family: 'Arial', sans-serif;
     }
     .main {
-        background-color: #fffdf7;
+        background-color: #black;
     }
     h1 {
         color: #d2691e;
