@@ -117,8 +117,8 @@ if res.success:
     # Visualisasi
     st.subheader("📊 Visualisasi Area Feasible dan Solusi Optimal")
     x = np.linspace(0, 50, 400)
-    y1 = (total_flour - flour_C * x) / flour_K
-    y2 = (total_labor - labor_C * x) / labor_K
+    y1 = (total_flour - flour_X * x) / flour_Y
+    y2 = (total_labor - labor_X * x) / labor_Y
 
     fig, ax = plt.subplots()
     ax.plot(x, y1, label='Batas Tepung', color='brown')
