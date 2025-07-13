@@ -8,10 +8,41 @@ import base64
 
 st.set_page_config(page_title="Optimasi Produksi Kue - SweetBite", layout="centered")
 
-# Judul dengan warna teks yang jelas
-st.markdown("<h1 style='color:#5a3e36;'>🎂 Optimasi Produksi Kue - Toko Roti SweetBite</h1>", unsafe_allow_html=True)
+# Custom CSS styling
+st.markdown("""
+<style>
+    body {
+        font-family: 'Arial', sans-serif;
+    }
+    .main {
+        background-color: #fffdf7;
+    }
+    h1 {
+        color: #d2691e;
+        text-align: center;
+        font-size: 36px;
+        margin-bottom: 20px;
+    }
+    .stButton > button {
+        background-color: #ffb347;
+        color: white;
+        font-weight: bold;
+    }
+    .stDownloadButton > button {
+        background-color: #20c997;
+        color: white;
+        font-weight: bold;
+    }
+</style>
+""", unsafe_allow_html=True)
 
-st.markdown("Aplikasi ini membantu menentukan kombinasi produksi <strong>Kue Cokelat</strong> dan <strong>Kue Keju</strong> yang memberikan keuntungan maksimal berdasarkan keterbatasan sumber daya.", unsafe_allow_html=True)
+st.markdown("<h1>🎂 Optimasi Produksi Kue - Toko Roti SweetBite</h1>", unsafe_allow_html=True)
+
+st.markdown("""
+<p style='font-size: 18px;'>
+Aplikasi ini membantu menentukan kombinasi produksi <strong>Kue Cokelat</strong> dan <strong>Kue Keju</strong> yang memberikan keuntungan maksimal berdasarkan keterbatasan sumber daya.
+</p>
+""", unsafe_allow_html=True)
 
 # INPUT
 st.header("📥 Input Data Produksi")
@@ -34,7 +65,7 @@ total_labor = st.slider("Total Jam Kerja (jam)", min_value=10, max_value=100, va
 
 # Fungsi untuk download data sebagai JSON
 def download_json(data, filename="hasil.json"):
-    json_str = json.dumps(data, indent =4)
+    json_str = json.dumps(data, indent=4)
     b64 = base64.b64encode(json_str.encode()).decode()
     href = f'<a href="data:file/json;base64,{b64}" download="{filename}">📥 Download Hasil sebagai JSON</a>'
     return href
@@ -65,6 +96,7 @@ if res.success:
         "Keuntungan per Unit": [profit_C, profit_K],
         "Total Keuntungan": [x_cokelat*profit_C, x_keju*profit_K]
     })
+    st.subheader("📋 Ringkasan Perhitungan")
     st.dataframe(hasil, use_container_width=True)
 
     # Download hasil
@@ -81,9 +113,9 @@ if res.success:
     y2 = (total_labor - labor_C * x) / labor_K
 
     fig, ax = plt.subplots()
-    ax.plot(x, y1, label='Batas Tepung')
-    ax.plot(x, y2, label='Batas Jam Kerja')
-    ax.fill_between(x, np.minimum(y1, y2), 0, where=(y1>0)&(y2>0), alpha=0.3)
+    ax.plot(x, y1, label='Batas Tepung', color='brown')
+    ax.plot(x, y2, label='Batas Jam Kerja', color='orange')
+    ax.fill_between(x, np.minimum(y1, y2), 0, where=(y1>0)&(y2>0), color='peachpuff', alpha=0.3)
 
     ax.plot(x_cokelat, x_keju, 'ro', label='Solusi Optimal')
     ax.set_xlim(left=0)
