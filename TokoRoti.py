@@ -15,13 +15,20 @@ st.markdown("""
         font-family: 'Arial', sans-serif;
     }
     .main {
-        background-color: #black;
+        background-color: #fffdf7;
     }
     h1 {
-        color: #d2691e;
+        color: #8B4513;
         text-align: center;
-        font-size: 36px;
-        margin-bottom: 20px;
+        font-size: 38px;
+        font-weight: bold;
+    }
+    h2, h3, h4 {
+        color: #5a3921;
+    }
+    p {
+        color: #333333;
+        font-size: 18px;
     }
     .stButton > button {
         background-color: #ffb347;
@@ -42,7 +49,7 @@ st.markdown("""
         padding-right: 3rem;
         border-radius: 12px;
         background-color: #ffffff;
-        box-shadow: 0 0 10px rgba(0,0,0,0.05);
+        box-shadow: 0 0 10px rgba(0,0,0,0.08);
     }
     .logo {
         display: block;
@@ -54,13 +61,13 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-# Tambahkan logo (gunakan URL placeholder atau ganti dengan logo toko asli jika ada)
+# Tambahkan logo
 st.markdown("<img src='https://cdn-icons-png.flaticon.com/512/2965/2965567.png' class='logo'>", unsafe_allow_html=True)
 
 st.markdown("<h1>🎂 Optimasi Produksi Kue - Toko Roti SweetBite</h1>", unsafe_allow_html=True)
 
 st.markdown("""
-<p style='font-size: 18px;'>
+<p>
 Aplikasi ini membantu menentukan kombinasi produksi <strong>Kue Cokelat</strong> dan <strong>Kue Keju</strong> yang memberikan keuntungan maksimal berdasarkan keterbatasan sumber daya.
 </p>
 """, unsafe_allow_html=True)
@@ -92,11 +99,8 @@ def download_json(data, filename="hasil.json"):
     return href
 
 # Solve using linprog
-c = [-profit_C, -profit_K]  # Max profit -> Minimize negative
-A = [
-    [flour_C, flour_K],
-    [labor_C, labor_K]
-]
+c = [-profit_C, -profit_K]
+A = [[flour_C, flour_K], [labor_C, labor_K]]
 b = [total_flour, total_labor]
 
 res = linprog(c, A_ub=A, b_ub=b, method='highs')
@@ -113,7 +117,6 @@ if res.success:
     with col4:
         st.metric("💰 Total Keuntungan Maksimal", f"Rp {total_profit:,.0f}")
 
-    # Tabel ringkasan
     hasil = pd.DataFrame({
         "Produk": ["Kue Cokelat", "Kue Keju"],
         "Jumlah Optimal": [x_cokelat, x_keju],
@@ -123,14 +126,12 @@ if res.success:
     st.subheader("📋 Ringkasan Perhitungan")
     st.dataframe(hasil, use_container_width=True)
 
-    # Download hasil
     st.markdown(download_json({
         "Kue Cokelat": round(x_cokelat, 2),
         "Kue Keju": round(x_keju, 2),
         "Total Keuntungan": round(total_profit, 2)
     }), unsafe_allow_html=True)
 
-    # Visualisasi
     st.subheader("📊 Visualisasi Area Feasible dan Solusi Optimal")
     x = np.linspace(0, 50, 400)
     y1 = (total_flour - flour_C * x) / flour_K
@@ -140,7 +141,6 @@ if res.success:
     ax.plot(x, y1, label='Batas Tepung', color='brown')
     ax.plot(x, y2, label='Batas Jam Kerja', color='orange')
     ax.fill_between(x, np.minimum(y1, y2), 0, where=(y1>0)&(y2>0), color='peachpuff', alpha=0.3)
-
     ax.plot(x_cokelat, x_keju, 'ro', label='Solusi Optimal')
     ax.set_xlim(left=0)
     ax.set_ylim(bottom=0)
@@ -149,7 +149,6 @@ if res.success:
     ax.legend()
     st.pyplot(fig)
 
-    # Penjelasan
     with st.expander("🔍 Lihat Penjelasan Langkah Linear Programming"):
         st.markdown(f"""
         1. Fungsi tujuan: `Max Z = {profit_C}C + {profit_K}K`
@@ -159,6 +158,5 @@ if res.success:
         3. Diubah ke bentuk matriks dan diselesaikan dengan metode *Simplex*
         4. Hasil berupa kombinasi optimal dan nilai maksimum fungsi tujuan
         """)
-
 else:
     st.error("❌ Tidak ditemukan solusi feasible. Coba ubah batasan atau input.")
