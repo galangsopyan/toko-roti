@@ -44,8 +44,18 @@ st.markdown("""
         background-color: #ffffff;
         box-shadow: 0 0 10px rgba(0,0,0,0.05);
     }
+    .logo {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 80px;
+        margin-bottom: 1rem;
+    }
 </style>
 """, unsafe_allow_html=True)
+
+# Tambahkan logo (gunakan URL placeholder atau ganti dengan logo toko asli jika ada)
+st.markdown("<img src='https://cdn-icons-png.flaticon.com/512/2965/2965567.png' class='logo'>", unsafe_allow_html=True)
 
 st.markdown("<h1>🎂 Optimasi Produksi Kue - Toko Roti SweetBite</h1>", unsafe_allow_html=True)
 
