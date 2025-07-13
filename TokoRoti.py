@@ -44,7 +44,7 @@ st.markdown("""
 # Tambahkan logo
 st.markdown("<img src='https://marketplace.canva.com/EAE_dLvTFF8/1/0/800w/canva-cokelat-sederhana-logo-toko-kue-OLQJvUWFkw0.jpg' class='logo'>", unsafe_allow_html=True)
 
-st.markdown("<h1>🎂 Optimasi Produksi Kue - Toko Roti SweetBite</h1>", unsafe_allow_html=True)
+st.markdown("<h1>🎂 Optimasi Produksi - Toko Kue SweetBite</h1>", unsafe_allow_html=True)
 
 st.markdown("""
 <p style='font-size: 18px;'>
