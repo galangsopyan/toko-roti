@@ -6,7 +6,7 @@ import pandas as pd
 import json
 import base64
 
-st.set_page_config(page_title="Optimasi Produksi Kue - SweetBite", layout="centered")
+st.set_page_config(page_title="Optimasi Produksi Kue - SweetBite", layout="centered", color: #333333)
 
 # Custom CSS styling
 st.markdown("""
