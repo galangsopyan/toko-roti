@@ -18,7 +18,7 @@ st.markdown("""
         background-color: #fffdf7;
     }
     h1 {
-        color: #3e2723;
+        color: #5a3921;
         text-align: center;
         font-size: 40px;
         font-weight: bold;
