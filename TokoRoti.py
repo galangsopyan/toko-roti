@@ -27,11 +27,22 @@ st.markdown("""
         background-color: #ffb347;
         color: white;
         font-weight: bold;
+        border-radius: 8px;
     }
     .stDownloadButton > button {
         background-color: #20c997;
         color: white;
         font-weight: bold;
+        border-radius: 8px;
+    }
+    .block-container {
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+        padding-left: 3rem;
+        padding-right: 3rem;
+        border-radius: 12px;
+        background-color: #ffffff;
+        box-shadow: 0 0 10px rgba(0,0,0,0.05);
     }
 </style>
 """, unsafe_allow_html=True)
@@ -67,7 +78,7 @@ total_labor = st.slider("Total Jam Kerja (jam)", min_value=10, max_value=100, va
 def download_json(data, filename="hasil.json"):
     json_str = json.dumps(data, indent=4)
     b64 = base64.b64encode(json_str.encode()).decode()
-    href = f'<a href="data:file/json;base64,{b64}" download="{filename}">📥 Download Hasil sebagai JSON</a>'
+    href = f'<a href="data:file/json;base64,{b64}" download="{filename}" style="display:inline-block;margin-top:10px;font-weight:bold;">📥 Download Hasil sebagai JSON</a>'
     return href
 
 # Solve using linprog
@@ -85,9 +96,12 @@ if res.success:
     total_profit = -res.fun
 
     st.success("✅ Solusi Optimal Ditemukan!")
-    st.write(f"Jumlah **Kue Cokelat**: `{x_cokelat:.2f}` unit")
-    st.write(f"Jumlah **Kue Keju**: `{x_keju:.2f}` unit")
-    st.write(f"💰 **Total Keuntungan Maksimal**: `Rp {total_profit:,.0f}`")
+    col3, col4 = st.columns(2)
+    with col3:
+        st.metric("Jumlah Kue Cokelat", f"{x_cokelat:.2f} unit")
+        st.metric("Jumlah Kue Keju", f"{x_keju:.2f} unit")
+    with col4:
+        st.metric("💰 Total Keuntungan Maksimal", f"Rp {total_profit:,.0f}")
 
     # Tabel ringkasan
     hasil = pd.DataFrame({
