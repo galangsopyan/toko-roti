@@ -57,14 +57,14 @@ st.header("📥 Input Data Produksi")
 
 col1, col2 = st.columns(2)
 with col1:
-    profit_C = st.number_input("Keuntungan Kue Cokelat (Rp)", value=6000)
-    flour_C = st.number_input("Tepung untuk Cokelat (gr)", value=200)
-    labor_C = st.number_input("Jam kerja Kue Cokelat", value=2)
+    profit_X = st.number_input("Keuntungan Kue Cokelat (Rp)", value=6000)
+    flour_X = st.number_input("Tepung untuk Cokelat (gr)", value=200)
+    labor_X = st.number_input("Jam kerja Kue Cokelat", value=2)
 
 with col2:
-    profit_K = st.number_input("Keuntungan Kue Keju (Rp)", value=8000)
-    flour_K = st.number_input("Tepung untuk Keju (gr)", value=300)
-    labor_K = st.number_input("Jam kerja Kue Keju", value=1)
+    profit_Y = st.number_input("Keuntungan Kue Keju (Rp)", value=8000)
+    flour_Y = st.number_input("Tepung untuk Keju (gr)", value=300)
+    labor_Y = st.number_input("Jam kerja Kue Keju", value=1)
 
 # batasan
 st.subheader("⛔ Batasan Sumber Daya")
@@ -79,10 +79,10 @@ def download_json(data, filename="hasil.json"):
     return href
 
 # Solve using linprog
-c = [-profit_C, -profit_K]  # Max profit -> Minimize negative
+c = [-profit_X, -profit_Y]  # Max profit -> Minimize negative
 A = [
-    [flour_C, flour_K],
-    [labor_C, labor_K]
+    [flour_X, flour_Y],
+    [labor_X, labor_Y]
 ]
 b = [total_flour, total_labor]
 
@@ -101,8 +101,8 @@ if res.success:
     hasil = pd.DataFrame({
         "Produk": ["Kue Cokelat", "Kue Keju"],
         "Jumlah Optimal": [x_cokelat, x_keju],
-        "Keuntungan per Unit": [profit_C, profit_K],
-        "Total Keuntungan": [x_cokelat*profit_C, x_keju*profit_K]
+        "Keuntungan per Unit": [profit_X, profit_Y],
+        "Total Keuntungan": [x_cokelat*profit_X, x_keju*profit_Y]
     })
     st.subheader("📋 Ringkasan Perhitungan")
     st.dataframe(hasil, use_container_width=True)
