@@ -11,28 +11,27 @@ st.set_page_config(page_title="Optimasi Produksi Kue - SweetBite", layout="cente
 # Custom CSS styling
 st.markdown("""
 <style>
-    body {
-        font-family: 'Arial', sans-serif;
-        background-color: #black;
-        color: #212121;
+    html, body, [class*="css"]  {
+        font-family: 'Segoe UI', sans-serif;
+        background-color: #ffffff !important;
+        color: #000000;
     }
     .main {
-        background-color: #black;
         max-width: 1000px;
         margin: auto;
         padding: 2rem;
     }
     h1 {
-        color: #212121;
+        color: #1a1a1a;
         text-align: center;
-        font-size: 38px;
+        font-size: 42px;
         font-weight: bold;
     }
     h2, h3, h4 {
-        color: #333333;
+        color: #2a2a2a;
     }
     p {
-        color: #444444;
+        color: #333333;
         font-size: 18px;
     }
     .stButton > button {
@@ -48,13 +47,10 @@ st.markdown("""
         border-radius: 8px;
     }
     .block-container {
-        padding-top: 2rem;
-        padding-bottom: 2rem;
-        padding-left: 3rem;
-        padding-right: 3rem;
+        padding: 2rem 3rem;
         border-radius: 12px;
         background-color: #ffffff;
-        box-shadow: 0 0 10px rgba(0,0,0,0.08);
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
     }
     .logo {
         display: block;
