@@ -37,7 +37,7 @@ st.markdown("""
         display: block;
         margin-left: auto;
         margin-right: auto;
-        width: 3000px;
+        width: 300px;
         margin-bottom: 6rem;
 </style>
 """, unsafe_allow_html=True)
