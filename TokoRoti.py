@@ -136,10 +136,10 @@ if res.success:
     # Penjelasan
     with st.expander("🔍 Lihat Penjelasan Langkah Linear Programming"):
         st.markdown(f"""
-        1. Fungsi tujuan: `Max Z = {profit_C}C + {profit_K}K`
+        1. Fungsi tujuan: `Z = {profit_C}X + {profit_K}Y`
         2. Batasan:
-            - `{flour_C}C + {flour_K}K <= {total_flour}` (Tepung)
-            - `{labor_C}C + {labor_K}K <= {total_labor}` (Jam kerja)
+            - `{flour_X}X + {flour_Y}Y <= {total_flour}` (Tepung)
+            - `{labor_X}X + {labor_Y}Y <= {total_labor}` (Jam kerja)
         3. Diubah ke bentuk matriks dan diselesaikan dengan metode *Simplex*
         4. Hasil berupa kombinasi optimal dan nilai maksimum fungsi tujuan
         """)
