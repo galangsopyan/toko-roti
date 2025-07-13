@@ -7,16 +7,11 @@ import json
 import base64
 
 st.set_page_config(page_title="Optimasi Produksi Kue - SweetBite", layout="centered")
-st.markdown("""
-<style>
-.stApp { background-color: #426B3; }
-.title { color: white; }
-</style>
-""", unsafe_allow_html=True)
 
-st.title("🎂 Optimasi Produksi Kue - Toko Roti SweetBite")
+# Judul dengan warna teks yang jelas
+st.markdown("<h1 style='color:#5a3e36;'>🎂 Optimasi Produksi Kue - Toko Roti SweetBite</h1>", unsafe_allow_html=True)
 
-st.markdown("Aplikasi ini membantu menentukan kombinasi produksi **Kue Cokelat** dan **Kue Keju** yang memberikan keuntungan maksimal berdasarkan keterbatasan sumber daya.")
+st.markdown("Aplikasi ini membantu menentukan kombinasi produksi <strong>Kue Cokelat</strong> dan <strong>Kue Keju</strong> yang memberikan keuntungan maksimal berdasarkan keterbatasan sumber daya.", unsafe_allow_html=True)
 
 # INPUT
 st.header("📥 Input Data Produksi")
