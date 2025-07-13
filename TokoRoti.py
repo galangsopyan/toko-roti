@@ -38,7 +38,7 @@ st.markdown("""
         margin-left: auto;
         margin-right: auto;
         width: 300px;
-        margin-bottom: 6rem;
+        margin-bottom: 1rem;
 </style>
 """, unsafe_allow_html=True)
 # Tambahkan logo
