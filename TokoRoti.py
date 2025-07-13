@@ -6,7 +6,7 @@ import pandas as pd
 import json
 import base64
 
-st.set_page_config(page_title="Optimasi Produksi Kue - SweetBite", layout="centered", color: #333333)
+st.set_page_config(page_title="Optimasi Produksi Kue - SweetBite", layout="centered")
 
 # Custom CSS styling
 st.markdown("""
@@ -22,7 +22,7 @@ st.markdown("""
         padding: 2rem;
     }
     h1 {
-        color: #white;
+        color: #333333;
         text-align: center;
         font-size: 42px;
         font-weight: bold;
